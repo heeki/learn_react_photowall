@@ -10,15 +10,14 @@ class PhotoGrid extends Component {
             <div className="grid">
                 {this.props.posts
                     .sort((x,y) => y.id - x.id)
-                    .map((post, index) => <Photo key={index} post={post} onRemovePhoto={this.props.onRemovePhoto} />)}
+                    .map((post, index) => <Photo key={index} index={index} post={post} {...this.props} />)}
             </div>
         </div>
     }
 }
 
 PhotoGrid.propTypes = {
-    posts: PropTypes.array.isRequired,
-    onRemovePhoto: PropTypes.func.isRequired
+    posts: PropTypes.array.isRequired
 }
 
 // function PhotoGrid(props) {
