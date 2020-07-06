@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import Title from './Title';
 import PhotoGrid from './PhotoGrid';
-// import AddPhoto from './AddPhoto';
-import {Route} from 'react-router-dom';
+import AddPhoto from './AddPhoto';
+import {Route, Link} from 'react-router-dom';
 
 // function fetchPosts() {
 //   return [{
@@ -60,20 +60,19 @@ class Main extends Component {
   render() {
     console.log(this.props);
     return <div>
+      <h1>
+        <Link to="/">Photowall</Link>
+      </h1>
       <Route exact path="/" render={() => (
         <div>
-          <Title title={'Photowall'} />
           <PhotoGrid {...this.props} />
         </div>
       )} />
-      {/* <Route path="/AddPhoto" render={({history}) => (
+      <Route path="/AddPhoto" render={({history}) => (
         <div>
-          <AddPhoto onAddPhoto={(addedPost) => {
-            this.addPhoto(addedPost);
-            history.push('/');
-          }} />
+          <AddPhoto {...this.props} onHistory={history} />
         </div>
-      )} /> */}
+      )} />
     </div>
   }
 }
