@@ -1,16 +1,21 @@
-// remove
 export function removePost(index) {
     return {
         type: 'REMOVE_POST',
-        index: index
+        index
     }
 }
 
-// add
 export function addPost(post) {
     return {
         type: 'ADD_POST',
-        post: post
+        post
     }
 }
 
+export function addComment(comment, pid) {
+    return {
+        type: 'ADD_COMMENT',
+        comment,
+        pid
+    }
+}
